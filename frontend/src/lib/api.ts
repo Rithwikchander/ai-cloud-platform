@@ -1,7 +1,11 @@
 import axios from 'axios'
 
+const BASE_URL = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/api/v1`
+  : '/api/v1'
+
 const api = axios.create({
-  baseURL: '/api/v1',
+  baseURL: BASE_URL,
   headers: { 'Content-Type': 'application/json' },
 })
 
@@ -24,9 +28,10 @@ api.interceptors.response.use(
 
 export const authAPI = {
   login: (email: string, password: string) =>
-    api.post('/auth/login', new URLSearchParams({ username: email, password }), {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    }),
+    api.post('/auth/login', 
+      new URLSearchParams({ username: email, password }),
+      { headers: { 'Content-Type': 'application/x-www-form-urlencoded' }}
+    ),
   register: (email: string, username: string, password: string) =>
     api.post('/auth/register', { email, username, password }),
   me: () => api.get('/auth/me'),
@@ -35,7 +40,9 @@ export const authAPI = {
 export const modelsAPI = {
   list: () => api.get('/models/'),
   upload: (formData: FormData) =>
-    api.post('/models/upload', formData, { headers: { 'Content-Type': 'multipart/form-data' } }),
+    api.post('/models/upload', formData, {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    }),
   delete: (id: string) => api.delete(`/models/${id}`),
 }
 
