@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+venv/
+.env
+*.egg
+
+# Node
+node_modules/
+dist/
+.next/
+.cache/
+
+# Docker
+*.log
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.backup
+*.tfvars
+
+# VS Code
+.vscode/settings.json
+
+# Models
+model_storage/
+*.pkl
+*.pt
+*.onnx
