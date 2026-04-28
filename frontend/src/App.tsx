@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { useAuthStore } from '@/store/authStore'
-import LandingPage from '@/pages/LandingPage'
-import LoginPage from '@/pages/LoginPage'
-import DashboardPage from '@/pages/DashboardPage'
-import ModelsPage from '@/pages/ModelsPage'
-import DeploymentsPage from '@/pages/DeploymentsPage'
-import MonitoringPage from '@/pages/MonitoringPage'
-import PlaygroundPage from '@/pages/PlaygroundPage'
-import Sidebar from '@/components/ui/Sidebar'
+import { useAuthStore } from './store/authStore'
+import LandingPage from './pages/LandingPage'
+import LoginPage from './pages/LoginPage'
+import DashboardPage from './pages/DashboardPage'
+import ModelsPage from './pages/ModelsPage'
+import DeploymentsPage from './pages/DeploymentsPage'
+import MonitoringPage from './pages/MonitoringPage'
+import PlaygroundPage from './pages/PlaygroundPage'
+import Sidebar from './components/ui/Sidebar'
 
 function ProtectedLayout({ children }: { children: React.ReactNode }) {
   const { isAuthenticated } = useAuthStore()
