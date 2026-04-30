@@ -6,7 +6,7 @@ import toast from 'react-hot-toast'
 import { Cloud, Loader2 } from 'lucide-react'
 
 export default function LoginPage() {
-  const [isRegister, setIsRegister] = useState(false)
+  const [isRegister, setIsRegister] = useState(true)
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
